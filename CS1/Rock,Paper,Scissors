@@ -1,0 +1,105 @@
+import random
+import os
+
+weapons = ['rock', 'paper', 'scissors'] #the list weapon is ['rock', 'paper', 'scissors']
+user_score = 0
+bot_score = 0
+user_1_score = 0
+user_2_score = 0
+
+while True:
+    user_computer = input('Do you want to play against the computer or another user?').lower()
+    
+    if user_computer == 'computer':
+        while True: #while true loop:
+            weapon_choice = input('choose a weapon: ').lower() #user selects a weapon
+            if weapon_choice not in weapons: #if the user's choice is not rock paper or scissors
+                print('please select rock, paper, or scissors') #display 'please select rock, paper, or scissors'
+                continue #back to beginning of loop
+            random_item = random.choice(weapons) #computer selects a random weapon
+            print(f'the computer chose {random_item} and the user chose {weapon_choice}') #display what the computer chose and what the user chose
+            
+            if weapon_choice == random_item: #if user selects what computer selects
+                print('It is a tie!')   #it's a tie
+            elif weapon_choice == 'rock' and random_item == 'paper':#if user selects rock and computer selects paper:
+                print('Computer wins!') #computer wins 
+                bot_score += 1 #add 1 to the computer's score
+            elif weapon_choice == 'rock' and random_item == 'scissors': #user selects rock and computer selects scissors:
+                print('User wins!') #user wins 
+                user_score += 1 #add 1 to the user's score
+            elif weapon_choice == 'paper' and random_item == 'rock': #if user selects paper and computer selects rock:
+                print('User wins!') #user wins 
+                user_score += 1 #add 1 to the user's score
+            elif weapon_choice == 'paper' and random_item == 'scissors': #if user selects paper and computer selects scissors
+                print('Computer wins!') #computer wins 
+                bot_score += 1 #add 1 to the computer's score
+            elif weapon_choice == 'scissors' and random_item == 'paper': #if user selects scissors and computer selects paper
+                print('User wins!') #user wins 
+                user_score += 1 #add 1 to the user's score
+            elif weapon_choice == 'scissors' and random_item == 'rock': #if user selects scissors and computer selects rock
+                print('Computer wins!') #computer wins 
+                bot_score += 1 #add 1 to the computer's score
+
+            print(f'Your score is {user_score}') #display the user's score
+            print(f'The Computer score is {bot_score}') #display the computer's score
+
+            while True: #forever loop
+                play_again = input('Do you want to play again?').lower() #prompt user to answer question, convert to lower case
+                
+                if play_again == 'yes': #if user answers yes
+                    break #end forever loop
+                elif play_again == 'no': #if user answers no
+                    exit() #terminate the code 
+                else: 
+                    print('please enter yes or no') #display please enter yes or no
+                    continue #back to the beginning of loop
+    elif user_computer == 'user': #if user wants to play against another user 
+        while True: #forever loop
+            user_1_weaponchoice = input('User 1, choose a weapon: ').lower() #prompt first user to choose a weapon, convert to lowercase
+            if user_1_weaponchoice not in weapons:  #if weaponchoice is not rock paper or scissors
+                print('please select rock, paper, or scissors') #display please select rock, paper, or scissors
+                continue #back to the beginning of loop
+            os.system('cls') #clear console
+            user_2_weaponchoice = input('User 2, choose a weapon: ').lower() #prompt second user to choose a weapon, convert to lowercase
+            if user_2_weaponchoice not in weapons: #if second user does not choose rock paper or scissors
+                print('please select rock, paper, or scissors') #display please select rock, paper, or scissors
+                continue #back to the beginning of loop
+            os.system('cls') #clear console
+            print(f'User 1 chose {user_1_weaponchoice} and User 2 chose {user_2_weaponchoice}') #display the first user's weapon choice and the second user's weaponchoice 
+
+            if user_1_weaponchoice == user_2_weaponchoice: #if user selects what computer selects
+                print('It is a tie!')   #it's a tie
+            elif user_1_weaponchoice == 'rock' and user_2_weaponchoice == 'paper':#if user selects rock and computer selects paper:
+                print('User 2 wins!') #User 2 wins 
+                user_2_score += 1 #add 1 to second user's score
+            elif user_1_weaponchoice == 'rock' and user_2_weaponchoice == 'scissors': #user selects rock and computer selects scissors:
+                print('User 1 wins!') #User 1 wins 
+                user_1_score += 1 #add 1 to first user's score
+            elif user_1_weaponchoice == 'paper' and user_2_weaponchoice == 'rock': #if user selects paper and computer selects rock:
+                print('User 1 wins!') #user 1 wins 
+                user_1_score += 1 #add 1 to first user's score
+            elif user_1_weaponchoice == 'paper' and user_2_weaponchoice == 'scissors': #if user selects paper and computer selects scissors
+                print('User 2 wins!') #User 2 wins 
+                user_2_score += 1 #add 1 to second user's score
+            elif user_1_weaponchoice == 'scissors' and user_2_weaponchoice == 'paper': #if user selects scissors and computer selects paper
+                print('User 1 wins!') #user 1 wins 
+                user_1_score += 1 #add 1 to first user's score
+            elif user_1_weaponchoice == 'scissors' and user_2_weaponchoice == 'rock': #if user selects scissors and computer selects rock
+                print('User 2 wins!') #computer wins 
+                user_2_score += 1 #add 1 to second user's score
+
+            print(f'User 1 score is {user_1_score}') #display first user's score
+            print(f'User 2 score is {user_2_score}') #display second user's score
+
+            while True: #forever loop
+                play_again = input('Do you want to play again?').lower() #prompt user to answer question, convert to lowercase
+                
+                if play_again == 'yes': #if answer is yes
+                    break #end forever loop
+                elif play_again == 'no': #if answer is no
+                    exit() #terminate the code
+                else:
+                    print('please enter yes or no') #display please enter yes or no
+                    continue #back to the beginning of loop
+    else:
+        print('please select rock, paper, or scissors') #display please select rock, paper, or scissors
