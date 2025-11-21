@@ -2,13 +2,13 @@ import random
 import os
 
 weapons = ['rock', 'paper', 'scissors'] #the list weapon is ['rock', 'paper', 'scissors']
-user_score = 0
-bot_score = 0
-user_1_score = 0
-user_2_score = 0
+user_score = 0 #set user's score to 0
+bot_score = 0 #set computer's score to 0
+user_1_score = 0 #set first user's score to 0
+user_2_score = 0 #set second user's score to 0
 
-while True:
-    user_computer = input('Do you want to play against the computer or another user?').lower()
+while True:  
+    user_computer = input('Do you want to play against the computer or another user?').lower() #prompt user to answer question, convert to lowercase
     
     if user_computer == 'computer':
         while True: #while true loop:
@@ -44,7 +44,7 @@ while True:
             print(f'The Computer score is {bot_score}') #display the computer's score
 
             while True: #forever loop
-                play_again = input('Do you want to play again?').lower() #prompt user to answer question, convert to lower case
+                play_again = input('Do you want to play again?').lower() #prompt user to answer question, convert to lowercase
                 
                 if play_again == 'yes': #if user answers yes
                     break #end forever loop
